@@ -56,7 +56,7 @@ void setup() {
   // if it does not connect, it starts an access point with the specified name
   // and goes into a blocking loop awaiting configuraiton.
 
-  if(!wifimanager.autoConnect("BlinkBlinkAutoConnectAP")) {
+  if(!wifimanager.autoConnect( ("BlinkBlink_" + String(ESP.getChipId(), HEX)).c_str() )) {
     Serial.println("failed to connect and hit timeout");
     delay(3000);
     //reset and try again, or maybe put it to deep sleep

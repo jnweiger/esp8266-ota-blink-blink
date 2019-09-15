@@ -1,4 +1,4 @@
-# esp8266-ota-blink-blink
+# ESP8266-OTA-Blink-Blink
 
 The last program you flash per USB - Everything else works over-the-air -- until you break it.
 Then you come here again.
