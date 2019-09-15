@@ -51,12 +51,17 @@ void setup() {
   // start wifi
   WiFiManager wifimanager;
   wifimanager.setDebugOutput(true);   // do or don't talk to Serial. (default true)
+  #if 0
+  wifimanager.setHostname( ("BlinkBlink_" + String(ESP.getChipId(), HEX)).c_str() );     // not yet in master of github.com/tzapu/WiFiManager
+  #else
+  WiFi.hostname( ("BlinkBlink_" + String(ESP.getChipId(), HEX)).c_str() );               // ESP8266 only.
+  #endif
   wifimanager.setTimeout(120);        // 2 minutes wait.
   // autoConnect fetches ssid and pass from eeprom (if stored) and tries to connext.
   // if it does not connect, it starts an access point with the specified name
   // and goes into a blocking loop awaiting configuraiton.
 
-  if(!wifimanager.autoConnect( ("BlinkBlink_" + String(ESP.getChipId(), HEX)).c_str() )) {
+  if(!wifimanager.autoConnect( ("BlinkBlink_AutoAP" + String(ESP.getChipId(), HEX)).c_str() )) {
     Serial.println("failed to connect and hit timeout");
     delay(3000);
     //reset and try again, or maybe put it to deep sleep
