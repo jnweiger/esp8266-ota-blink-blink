@@ -15,5 +15,18 @@ simple web applications. (Avoiding the need of an android or iphone app, for sim
 
 The builtin web-app can choose differnt blinking patterns on the onboard LED of the ESP8266.
 
+## Usage
 
-
+* Install the SDK via http://docs.platformio.org/en/latest/ide/vscode.html
+* Create a new empty github project (with README.md and LICENSE, if you like)
+* Copy the files `src/main.cpp platformio.ini .gitignore` into the checkout folder of your new project.
+* `git add * .gitignore`
+* Start `code` -> locate 'PIO Home' (if it is not there, click on the Alien Face on the left, that should open it.
+* Click 'PIO Home' -> open Project -> locate your new checkout folder -> open.
+* Click open platformio.ini -> check if `upload_port` and `upload_protocol` are commented. That defines if we use USB or OTA.
+* Click open src/main.cpp -> locate the AccessPoint Name "BlinkBlinkAutoConnectAP" and change it to match your project.
+* At the bottom blue bar, hit the checkmar icon to 'Build'. The initial build takes long.
+* At the bottom blue bar, hit the right arrow icon to 'Upload'.
+* The LED should start blinking, when all is done, and the chip got its reset.
+* Connect via HTTP and change the blinking.
+* Happy hacking!
